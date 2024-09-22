@@ -8,7 +8,7 @@ from textwrap import dedent
 from datetime import timedelta, datetime
 
 with DAG(
-    "tutorial_2",
+    "daglar_tutorial",
     default_args={
         "depends_on_past": False,
         "email": ["daglar@dragomiroff.ru"],
