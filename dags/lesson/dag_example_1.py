@@ -3,7 +3,7 @@ DOC FROM BEGIN DOC
 """
 
 from airflow import DAG
-from airflow.operators import BashOperator
+from airflow.operators.bash import BashOperator
 from textwrap import dedent
 from datetime import datetime, timedelta
 
@@ -13,7 +13,9 @@ with DAG(
         "depends_on_past": False,
         "email": ["daglar@dragomiroff.ru"],
         "email_on_failure": False,
+        "email_on_retry": False,
         "retries": 1,
+        "retry_delay": timedelta(minutes=5),
     },
     description="DAG EXMAPLE_000",
     sheduler_interval=timedelta(days=1),
